@@ -14,7 +14,7 @@ public class DemoController {
         return "Hello from Spring Boot Keycloak";
     }
 
-    @GetMapping("hello-2")
+    @GetMapping("hello-12")
     public  String hello2(){
         return "Hello from Spring Boot Keycloak & Admin";
     }
