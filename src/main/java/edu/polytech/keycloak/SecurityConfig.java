@@ -16,6 +16,7 @@ import org.springframework.security.web.SecurityFilterChain;
 @RequiredArgsConstructor
 public class SecurityConfig {
 
+    private  final JwtAuthConverter jwtAuthConverter;
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
@@ -26,7 +27,8 @@ public class SecurityConfig {
                 .authenticated();
         http
                 .oauth2ResourceServer()
-                .jwt();
+                .jwt()
+                .jwtAuthenticationConverter(jwtAuthConverter);
         http
                 .sessionManagement()
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS);
